@@ -1,12 +1,17 @@
 #include <Arduino.h>
-#include <LibRobus.h>
-
+#include <librobus.h>
+#include <pompe/pompe.h>
+// put function declarations here:
+Pompe pompe;
 void setup() {
+  // put your setup code here, to run once:
   BoardInit();
-  Serial.begin(9600);
-  Serial.println("Hello World!");
+  pompe.setupPompe(53);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  pompe.pompeON();
+  delay(2000);
+  pompe.pompeOFF();
+   delay(2000);
 }
